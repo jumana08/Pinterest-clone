@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Interest Modal</title>
+    <style>
+        .col-lg {
+            border: 3px solid white;
+            margin: 4px;
+            font-weight: bold;
+            border-radius: 15px;
+            width: 150px;
+            height: 150px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn {
+            background-color: #4A274F;
+            color: white;
+        }
+
+        .btn:hover {
+            color: white;
+        }
+
+        .modal-header {
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pick your interests...</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg" id="makeup"
+                                style="background: url(https://source.unsplash.com/150x150/?makeup); outline: none;"
+                                onclick='interest_find("makeup")'>Make-up</div>
+                            <div class="col-lg" id="art"
+                                style="background: url(https://source.unsplash.com/150x150/?art); outline: none;"
+                                onclick='interest_find("art")'>Art</div>
+                            <div class="col-lg" id="henna"
+                                style="background: url(https://source.unsplash.com/150x150/?henna); outline: none;"
+                                onclick='interest_find("henna")'>Mehendi</div>
+                            <div class="col-lg" id="nature"
+                                style="background: url(https://source.unsplash.com/150x150/?nature); outline: none;"
+                                onclick='interest_find("nature")'>Nature</div>
+                            <div class="col-lg" id="recipes"
+                                style="background: url(https://source.unsplash.com/150x150/?recipes); outline: none;"
+                                onclick='interest_find("recipes")'>Food recipes</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg" id="friendship"
+                                style="background: url(https://source.unsplash.com/150x150/?friendship); outline: none;"
+                                onclick='interest_find("friendship")'>Friendship Quotes</div>
+                            <div class="col-lg" id="beauty_products"
+                                style="background: url(https://source.unsplash.com/150x150/?brushes,makeup,product); outline: none;"
+                                onclick='interest_find("beauty_products")'>Beauty Products</div>
+                            <div class="col-lg" id="flowers"
+                                style="background: url(https://source.unsplash.com/150x150/?flowers); outline: none;"
+                                onclick='interest_find("flowers")'>Flowers</div>
+                            <div class="col-lg" id="hairstyles"
+                                style="background: url(https://source.unsplash.com/150x150/?hairstyles); outline: none;"
+                                onclick='interest_find("hairstyles")'>Hairstyles</div>
+                            <div class="col-lg" id="babies"
+                                style="background: url(https://source.unsplash.com/150x150/?babies); outline: none;"
+                                onclick='interest_find("babies")'>Babies</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg" id="child"
+                                style="background: url(https://source.unsplash.com/150x150/?child,fashion); outline: none;"
+                                onclick='interest_find("child")'>Children Fashion</div>
+                            <div class="col-lg" id="sketching"
+                                style="background: url(https://source.unsplash.com/150x150/?sketching); outline: none;"
+                                onclick='interest_find("sketching")'>Sketching</div>
+                            <div class="col-lg" id="travel"
+                                style="background: url(https://source.unsplash.com/150x150/?travel); outline: none;"
+                                onclick='interest_find("travel")'>Travel</div>
+                            <div class="col-lg" id="yoga"
+                                style="background: url(https://source.unsplash.com/150x150/?yoga,meditation); outline: none;"
+                                onclick='interest_find("yoga")'>Yoga</div>
+                            <div class="col-lg" id="nails"
+                                style="background: url(https://source.unsplash.com/150x150/?nails); outline: none;"
+                                onclick='interest_find("nails")'>Nails</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg" id="birthday"
+                                style="background: url(https://source.unsplash.com/150x150/?birthday,caps); outline: none;"
+                                onclick='interest_find("birthday")'>Birthday Quotes</div>
+                            <div class="col-lg" id="disney"
+                                style="background: url(https://source.unsplash.com/150x150/?disney); outline: none;"
+                                onclick='interest_find("disney")'>Cartoons</div>
+                            <div class="col-lg" id="dress"
+                                style="background: url(https://source.unsplash.com/150x150/?dress); outline: none;"
+                                onclick='interest_find("dress")'>Dresses</div>
+                            <div class="col-lg" id="birds"
+                                style="background: url(https://source.unsplash.com/150x150/?birds); outline: none;"
+                                onclick='interest_find("birds")'>Birds</div>
+                            <div class="col-lg" id="jewellery"
+                                style="background: url(https://source.unsplash.com/150x150/?jewellery); outline: none;"
+                                onclick='interest_find("jewellery")'>Bridal Jewellery</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg" id="quotes"
+                                style="background: url(https://source.unsplash.com/150x150/?positive,quotes); outline: none;"
+                                onclick='interest_find("quotes")'>Positive Quotes</div>
+                            <div class="col-lg" id="drawing"
+                                style="background: url(https://source.unsplash.com/150x150/?drawing,colorful); outline: none;"
+                                onclick='interest_find("drawing")'>Drawings</div>
+                            <div class="col-lg" id="love"
+                                style="background: url(https://source.unsplash.com/150x150/?love); outline: none;"
+                                onclick='interest_find("love")'>Love Quotes</div>
+                            <div class="col-lg" id="shoes"
+                                style="background: url(https://source.unsplash.com/150x150/?shoes); outline: none;"
+                                onclick='interest_find("shoes")'>Shoes</div>
+                            <div class="col-lg" id="morning"
+                                style="background: url(https://source.unsplash.com/150x150/?morning); outline: none;"
+                                onclick='interest_find("morning")'>Good Morning Quotes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form class="d-grid col-12" method="post" action="/interest/">
+
+                        {% csrf_token %}
+                        <input type="hidden" name="textbox" id="textbox">
+                        <button class="btn" id="one" type="submit" data-bs-dismiss="modal" disabled
+                            onclick="fun()">Done</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#exampleModal').modal('show');
+        })
+    </script>
+    <script>
+        var i = 0;
+        var interest = [];
+
+        function interest_find(id) {
+            if (document.getElementById(id).style.outline == "none") {
+                document.getElementById(id).style.outline = "3px solid #212b31";
+                interest[i] = id;
+                i++;
+                console.log(interest);
+            }
+            else {
+                document.getElementById(id).style.outline = "none";
+                remove(id);
+                i--;
+                console.log(interest);
+            }
+            var btn = document.getElementById("one");
+            if (i >= 5) {
+                btn.disabled = false;
+            }
+            else {
+                btn.disabled = true;
+            }
+        }
+        function remove(id) {
+            for (let j = 0; j < i; j++) {
+                if (interest[j] == id) {
+                    interest[j] = interest[i - 1];
+                    break;
+                }
+            }
+        }
+
+        function fun() {
+            document.getElementById("textbox").value = interest;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .image {
+        width: 400px;
+        height: 500px;
+        margin: 50px;
+        border-radius: 20px;
+        outline: 2px dashed rgb(201, 198, 198); 
+        border: 6px solid white; 
+        display: inline; 
+        position: relative;
+        float: left;
+        padding: 10px;
+        text-align: center;
+     }
+     .image #image{
+          position: absolute;
+          height: 450px;
+          width: 350px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          object-fit: cover;
+          left: 20px;
+          top: 18px;
+          border-radius: 10px;
+          cursor: pointer;
+          -webkit-box-shadow: 0 0 10px rgb(201, 198, 198);
+        box-shadow: 0 0 10px rgb(201, 198, 198);
+    }
+    .image-desc {
+        width: 990px;
+        height: 600px;
+        background: white;
+        top: 57%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        /* box-sizing: border-box; */
+        border-radius: 20px;
+        -webkit-box-shadow: 0 0 10px rgb(201, 198, 198);
+        box-shadow: 0 0 10px rgb(201, 198, 198);
+    }
+    .description{
+        display: inline;
+        position: relative;
+        float: right;
+        left: -10px;
+        top: -550px;
+        width: 50%;
+    }
+    #title, #catagory{
+        width: 90%;
+        height: 35px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid rgb(201, 198, 198);
+        outline: none;
+    }
+    #description{
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        border: 1px solid rgb(201, 198, 198);
+        outline: 1px solid rgb(201, 198, 198);
+    }
+    .save{
+        background: #4A274F;
+        color: white;
+        font-size: 16px;
+        width: 80px;
+        height: 50px;
+        font-weight: bold;
+        border-radius: 30px;
+    }
+    .save:hover{
+        color: white;
+        background: #321735;
+    }
+    h1{
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 23px;
+    }
+    .image #icon{
+        color: #4A274F;
+        font-size: 80px;
+        margin-top: 160px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .image .cancel-btn{
+        float: right;
+        transform: translateY(-330px);
+        font-size: 17px;
+        cursor: pointer;
+        display: none;
+    }
+    .image .cancel-btn:hover{
+        color: #4A274F;
+    }
+    .image .text{
+        font-size: 18px;
+        color: dimgray;
+    }
+    .image .file-name{
+        position: absolute;
+        display: none; 
+        padding: 8px 0;
+        font-size: 18px;
+        color: #000;
+        display: none;
+    }
+    .image.active:hover .file-name{
+        display: block;
+    }
+    .image.active:hover .cancel-btn{
+        display: block;
+    }
+    .image .file-name{
+        background: #4A274F;
+        position: absolute;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: white;
+        margin-left: 11px;
+        text-align: center;
+        width: 90%;
+        padding: 10px 5px;
+        bottom: 16px;
+    }
+    .nav-item1{
+        margin-top: 17px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #catagory{
+            width: 90%;
+            height: 35px;
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border: none;
+            /*background: transparent;*/
+            border-bottom: 2px solid rgb(201, 198, 198);
+            outline: none;
+            /*color: black;*/
+            /*z-index: 100;*/
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+<form action="/uploading/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="image-desc">
+        <div class="image">
+            <div class="wrapper" onclick="defaultBtnActive()">
+                <img src=" " alt=" " id="image">
+            </div>
+            <div id="icon" onclick="defaultBtnActive()">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <p class="text"> No file chosen, yet!</p>
+            <div class="cancel-btn">
+                <i class="fas fa-times" id="cancel-btn"></i>
+            </div>
+            <div class="file-name">
+               File name here
+            </div>
+            <input required id="default-btn" name="image" type="file" accept="image/jpeg, image/png" hidden>
+        </div>
+        <div class="description">
+            <h1>Add suitable title for your image</h1>
+            <input required type="text" name="title" id="title" placeholder="type here...">
+            <h1>Add description</h1>
+            <textarea required cols="50" rows="5" name="description" id="description" placeholder="tell us something about your image..."></textarea>
+            <h1>Add catagory to your image</h1>
+            <select required id="catagory" name="category">
+                <option value="none" selected disabled hidden>
+                      Select here...
+                </option>
+                <option value="makeup">Makeup</option>
+                <option value="art">Art</option>
+                <option value="henna">Mehendi</option>
+                <option value="nature">Nature</option>
+                <option value="recipes">Food recipes</option>
+                <option value="friendship">Friendship quotes</option>
+                <option value="beauty_products">Beauty products</option>
+                <option value="flowers">Flowers</option>
+                <option value="hairstyles">Hairstyles</option>
+                <option value="babies">Babies</option>
+                <option value="child">Children fashion</option>
+                <option value="sketching">Sketching</option>
+                <option value="travel">Travel</option>
+                <option value="yoga">Yoga</option>
+                <option value="nails">Nails</option>
+                <option value="birthday">Birthday quotes</option>
+                <option value="disney">Cartoons</option>
+                <option value="dress">Dresses</option>
+                <option value="birds">Birds</option>
+                <option value="jewellery">Bridal jewellery</option>
+                <option value="positive_quotes">Positive quotes</option>
+                <option value="drawing">Drawings</option>
+                <option value="love">Love</option>
+                <option value="shoes">Shoes</option>
+                <option value="morning">Good morning quotes</option>
+                <option value="other">Other</option>
+            </select>
+            <button type="submit" class="btn save">Save</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    var defaultbtn = document.getElementById("default-btn");
+    var img = document.getElementById("image");
+    var image = document.querySelector(".image");
+    var filename = document.querySelector(".file-name");
+    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+    var cancelbtn = document.getElementById("cancel-btn");
+    function defaultBtnActive(){
+        defaultbtn.click();
+    }
+    defaultbtn.addEventListener("change", function(){
+        const file = this.files[0];
+        if(file){
+            const reader = new FileReader();
+            reader.onload = function(){
+                const result = reader.result;
+                
+                img.src = result;
+                image.classList.add("active");
+                text();
+            }
+            cancelbtn.addEventListener("click", function(){
+                img.src="";
+                image.classList.remove("active");
+            })
+            reader.readAsDataURL(file);
+        }
+        if(this.value){
+            let valueStore = this.value.match(regExp);
+            filename.textContent = valueStore;
+        }
+    });
+</script>
+
+{% endblock%}

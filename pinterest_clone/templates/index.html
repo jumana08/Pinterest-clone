@@ -1,0 +1,693 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+	<title>Pinterest Clone</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	{% load static%}
+
+	<!-- homepage script -->
+	<script>
+
+		var i = 0;
+		var j = 0;
+		function divchange() {
+			var divtag = document.getElementById("div1");
+			var htag = document.getElementById("h");
+			var c = ["mediumorchid", "green", "darkcyan", "crimson"];
+			var h = ["DIY idea", "outfit idea", "home decor idea", "chai time snacks idea"];
+			var d = [
+
+		`<img src='{% static "a1.jpg" %}' alt="..">
+        <img src='{% static "a2.jpg" %}' alt="..">
+        <img src='{% static "a3.jpg" %}' alt="..">
+        <img src='{% static "a4.jpg" %}' alt="..">
+        <img src='{% static "a5.jpg" %}' alt="..">
+        <img src='{% static "a6.jpg" %}' alt="..">
+        <img src='{% static "a7.jpg" %}' alt="..">
+        <img src='{% static "a8.jpg" %}' alt="..">
+        <img src='{% static "a9.jpg" %}' alt="..">
+        <img src='{% static "a10.jpg" %}' alt="..">
+        <img src='{% static "a11.jpg" %}' alt="..">
+        <img src='{% static "a12.jpg" %}' alt="..">
+        <img src='{% static "a13.jpg" %}' alt="..">
+        <img src='{% static "a14.jpg" %}' alt="..">
+        <img src='{% static "a15.jpg" %}' alt="..">
+        <img src='{% static "a16.jpg" %}' alt="..">
+        <img src='{% static "a17.jpg" %}' alt="..">
+        <img src='{% static "a18.jpg" %}' alt="..">
+        <img src='{% static "a19.jpg" %}' alt="..">
+        <img src='{% static "a20.jpg" %}' alt="..">
+        <img src='{% static "a21.jpg" %}' alt="..">
+        <img src='{% static "a22.jpg" %}' alt="..">
+        <img src='{% static "a23.jpg" %}' alt="..">
+		<img src='{% static "a24.jpg" %}' alt="..">` ,
+		
+		`<img src='{% static "b1.jpg" %}' alt="..">
+        <img src='{% static "b2.jpg" %}' alt="..">
+        <img src='{% static "b3.jpg" %}' alt="..">
+        <img src='{% static "b4.jpg" %}' alt="..">
+        <img src='{% static "b5.jpg" %}' alt="..">
+        <img src='{% static "b6.jpg" %}' alt="..">
+        <img src='{% static "b7.jpg" %}' alt="..">
+        <img src='{% static "b8.jpg" %}' alt="..">
+        <img src='{% static "b9.jpg" %}' alt="..">
+        <img src='{% static "b10.jpg" %}' alt="..">
+        <img src='{% static "b11.jpg" %}' alt="..">
+        <img src='{% static "b12.jpg" %}' alt="..">
+        <img src='{% static "b13.jpg" %}' alt="..">
+        <img src='{% static "b14.jpg" %}' alt="..">
+        <img src='{% static "b15.jpg" %}' alt="..">
+        <img src='{% static "b16.jpg" %}' alt="..">
+        <img src='{% static "b17.jpg" %}' alt="..">
+        <img src='{% static "b18.jpg" %}' alt="..">
+        <img src='{% static "b19.jpg" %}' alt="..">
+        <img src='{% static "b20.jpg" %}' alt="..">
+        <img src='{% static "b21.jpg" %}' alt="..">` ,
+				
+		`<img src='{% static "c1.jpg" %}' alt="..">
+        <img src='{% static "c2.jpg" %}' alt="..">
+        <img src='{% static "c3.jpg" %}' alt="..">
+        <img src='{% static "c4.jpg" %}' alt="..">
+        <img src='{% static "c5.jpg" %}' alt="..">
+        <img src='{% static "c6.jpg" %}' alt="..">
+        <img src='{% static "c7.jpg" %}' alt="..">
+        <img src='{% static "c8.jpg" %}' alt="..">
+        <img src='{% static "c9.jpg" %}' alt="..">
+        <img src='{% static "c10.jpg" %}' alt="..">
+        <img src='{% static "c11.jpg" %}' alt="..">
+        <img src='{% static "c12.jpg" %}' alt="..">
+        <img src='{% static "c13.jpg" %}' alt="..">
+        <img src='{% static "c14.jpg" %}' alt="..">
+        <img src='{% static "c15.jpg" %}' alt="..">
+        <img src='{% static "c16.jpg" %}' alt="..">
+        <img src='{% static "c17.jpg" %}' alt="..">
+        <img src='{% static "c18.jpg" %}' alt="..">
+        <img src='{% static "c19.jpg" %}' alt="..">
+        <img src='{% static "c20.jpg" %}' alt="..">
+        <img src='{% static "c21.jpg" %}' alt="..">
+        <img src='{% static "c22.jpg" %}' alt="..">
+		<img src='{% static "c23.jpg" %}' alt="..">
+        <img src='{% static "c24.jpg" %}' alt="..">` ,
+				
+		`<img src='{% static "41.jpg" %}' alt="..">
+        <img src='{% static "42.jpg" %}' alt="..">
+        <img src='{% static "43.jpg" %}' alt="..">
+        <img src='{% static "44.jpg" %}' alt="..">
+        <img src='{% static "45.jpg" %}' alt="..">
+        <img src='{% static "46.jpg" %}' alt="..">
+        <img src='{% static "47.jpg" %}' alt="..">
+        <img src='{% static "48.jpg" %}' alt="..">
+        <img src='{% static "49.jpg" %}' alt="..">
+        <img src='{% static "410.jpg" %}' alt="..">
+        <img src='{% static "411.jpg" %}' alt="..">
+        <img src='{% static "412.jpg" %}' alt="..">
+        <img src='{% static "413.jpg" %}' alt="..">
+        <img src='{% static "414.jpg" %}' alt="..">
+        <img src='{% static "415.jpg" %}' alt="..">
+        <img src='{% static "416.jpg" %}' alt="..">
+        <img src='{% static "417.jpg" %}' alt="..">
+        <img src='{% static "418.jpg" %}' alt="..">
+        <img src='{% static "419.jpg" %}' alt="..">
+        <img src='{% static "420.jpg" %}' alt="..">
+        <img src='{% static "421.jpg" %}' alt="..">
+        <img src='{% static "422.jpg" %}' alt="..">
+        <img src='{% static "423.jpg" %}' alt="..">`];
+			divtag.innerHTML = d[i];
+			htag.innerHTML = h[j];
+			htag.style.color = c[j];
+			i = (i + 1) % d.length;
+			j = (j + 1) % h.length;
+		}
+		setInterval(divchange, 5000);
+	</script>
+	
+	<!-- login/ sign up modal css -->
+	<style>
+		small {
+			color: red;
+
+		}
+
+		.modal-header .close {
+			float: right;
+			font-size: 21px;
+			font-weight: 700;
+			line-height: 1;
+			background-color: white;
+			border: none;
+		}
+
+		#nav {
+			color: #4A274F;
+			font-weight: bolder;
+			font-family: cursive;
+		}
+
+		.b:hover {
+			background-color: #3c0942;
+			border-radius: 20px;
+		}
+
+		.b {
+			background-color: #4A274F;
+			color: white;
+			border-radius: 20px;
+			width: 100px;
+			height: 45px;
+			border: none;
+			font-weight: bold;
+		}
+
+		center {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.container {
+			width: 90%;
+			columns: 7;
+			column-gap: 15px;
+			padding: 15px;
+
+		}
+
+		img {
+			width: 100%;
+			margin-bottom: 15px;
+			border-radius: 10px;
+		}
+
+		.modal .modal-dialog {
+			width: 420px;
+			overflow: hidden;
+		}
+
+		.modal-content {
+			color: #212b31;
+			font-family: sans-serif;
+		}
+
+		.modal-header {
+			text-align: center;
+			display: block;
+		}
+
+		.modal-header .logo {
+			width: 80px;
+			height: 75px;
+			margin-left: 25px;
+		}
+
+		.modal-header .tagline {
+			font-size: 25px;
+			margin-top: 10px;
+			font-weight: 550;
+		}
+
+		.form-content #loginform {
+			display: none;
+		}
+
+		.form-content #loginform {
+			transform: translate(-100%, -50%);
+		}
+
+		.form-content #forgotpassform {
+			display: none;
+		}
+
+		.form-content #forgotpassform {
+			transform: translate(-100%, -50%);
+		}
+
+		.form-content #indicator {
+			width: 130px;
+			border: none;
+			border-radius: 3px;
+			height: 3px;
+			background-color: #4A274F;
+			opacity: 1;
+			transform: translateX(225px);
+			margin-top: 3px;
+			transition: transform 0.5s;
+		}
+
+		.form-content form input {
+			width: 80%;
+			border-radius: 5px;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid dimgray;
+			outline: none;
+			margin-top: 15px;
+			height: 30px;
+			font-size: 14px;
+			display: inline;
+		}
+
+		.form-content form .btn {
+			background-image: linear-gradient(to right, #4A274F, #F0A07C);
+			border-radius: 20px;
+			outline: none;
+			height: 30px;
+			color: white;
+			width: 87%;
+			font-weight: bold;
+			font-size: 16px;
+			border: none;
+			margin: 25px 0px 10px 20px;
+			cursor: pointer;
+			padding-top: 2px;
+		}
+
+		.form-content form .btn:hover {
+			color: white;
+			background-image: linear-gradient(to left, #4A274F, #F0A07C);
+		}
+
+		.form-content .form-btn .toggle-btn {
+			font-weight: 650;
+			display: inline-block;
+			cursor: pointer;
+			width: 49%;
+			font-size: 17px;
+			outline: 0;
+			border: none;
+			background: white;
+			text-align: center;
+			text-decoration: none;
+			border-color: white;
+			word-wrap: break-word;
+			white-space: normal;
+		}
+
+		.form-content form p {
+			text-align: center;
+			font-size: 13px;
+			margin-top: 10px;
+		}
+
+		.form-content form .facebook {
+			line-height: 25px;
+			text-align: center;
+			width: 87%;
+			border: none;
+			margin: 0px 0px 10px 20px;
+			background: #4267B2;
+			border-radius: 20px;
+			color: white;
+			font-weight: 600;
+			font-size: 15px;
+		}
+
+		.form-content form .facebook:hover {
+			color: white;
+			background: rgb(45, 71, 122);
+		}
+
+		.form-content form .fa-facebook,
+		.form-content form .fa-google {
+			float: left;
+			padding-top: 8px;
+		}
+
+		.form-content form a {
+			color: black;
+			font-weight: 650;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+
+		.form-content form .google {
+			line-height: 25px;
+			text-align: center;
+			width: 87%;
+			margin-left: 20px;
+			border: none;
+			background: #DB4437;
+			margin: 0px 0px 10px 20px;
+			border-radius: 20px;
+			color: white;
+			font-weight: 600;
+			font-size: 15px;
+		}
+
+		.form-content form .google:hover {
+			color: white;
+			background: rgb(186, 46, 33);
+		}
+
+		.form-content form .icon {
+			padding: 0px 8px 0px 0px;
+			margin-left: 20px;
+		}
+
+		.form-content .forgot {
+			font-size: 13px;
+			font-weight: 600;
+			margin-left: 25px;
+			line-height: 55px;
+		}
+
+		.form-content .backlogin {
+			font-size: 12px;
+			font-weight: 400;
+			margin-left: 23px;
+			cursor: pointer;
+			line-height: 50px;
+		}
+
+		.form-content #forgotpassform p {
+			text-align: left;
+			margin-left: 20px;
+			font-size: 15px;
+		}
+
+		.form-content #forgotpassform input {
+			height: 40px;
+			margin-top: 10px;
+			width: 79%;
+		}
+
+		#Reset {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+	{% for message in messages %}
+	<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="margin:0%;">
+		{{ message }}
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+		</button>
+	</div>
+	{% endfor %}
+
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light" style="padding: 0%;">
+		<div class="container-fluid">
+
+			<a class="navbar-brand"><img src='{%static "logo.png"%}' style="width: 75px;  height: 75px;" alt="logo"></a>
+			<a class="navbar-brand">
+				<h4 id="nav">Pinterest Clone</h4>
+			</a>
+
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+				<button class="mx-2 b" type="submit" data-toggle="modal"
+					data-target="#exampleModalCenter">Login</button>
+				<button class="mx-2 b" type="submit" data-toggle="modal"
+					data-target="#exampleModalCenter">SignUp</button>
+			</div>
+		</div>
+	</nav>
+
+	{% load static%}
+	<center>
+		<h1>Get your next</h1>
+		<h1 id="h">DIY idea</h1>
+	</center>
+	<div class="container" id="div1">
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span id="s" aria-hidden="true">&times;</span>
+					</button>
+					<div class="header">
+						<img src='{%static "logo.png"%}' alt="logo" class="logo">
+					</div>
+					<div class="tagline" id="tagline">
+						<p>Welcome to Pinterest-Clone</p>
+					</div>
+				</div>
+				<div class="modal-body form-content">
+					<div class="form-btn" id="head">
+						<a onclick="login()" class="btn toggle-btn">Log in</a>
+						<a onclick="register()" class="btn toggle-btn">Sign up</a>
+						<hr id="indicator">
+					</div>
+					<!-- registration form -->
+					<form id="regform" action="/SignUp/" method="POST">
+						{% csrf_token %}
+
+						<i class="fa fa-user-circle icon"></i>
+						<input name="username" placeholder="Username" id="username">
+						<i id="e1" style=" margin-left: -25px; color: rgb(218, 55, 40);"
+							class="fa fa-exclamation-circle"></i><br>
+						<small id="usernamevalid" class="invalid-feedback"
+							style="color: rgb(218, 55, 40); font-size: x-small; font-weight: bold; margin-left: 45px; margin-right: -45px; width: 90%;">
+							Your username must be 3-10 characters long and contains only alphanumeric character,
+							underscore and a dot.
+						</small>
+
+						<i class="fa fa-envelope icon"></i>
+						<input name="email" placeholder="E-mail" id="email">
+						<i id="e2" style="margin-left: -25px; color: rgb(218, 55, 40);"
+							class="fa fa-exclamation-circle"></i>
+						<br>
+						<small id="emailvalid" class="invalid-feedback"
+							style="color: rgb(218, 55, 40); font-size: x-small; font-weight: bold; margin-left: 45px; margin-right: -45px; width: 90%;">
+
+							Please enter your email address in format yourname@example.com .
+						</small>
+						<i class="fa fa-unlock-alt icon" style="padding-right: 10px;"></i>
+						<input type="password" name="password" placeholder=" Password" style="margin-left: 3px;"
+							id="password">
+						<i id="e3" style="margin-left: -25px; color: rgb(218, 55, 40);"
+							class="fa fa-exclamation-circle"></i>
+						<br>
+
+						<small id="passwordvalid" class="invalid-feedback"
+							style="color: rgb(218, 55, 40); font-size: x-small; font-weight: bold; margin-left: 45px; margin-right: -45px; width: 90%;">
+							Your password must be 8 characters and contains atleast 1 uppercase character, 1 number, and 1 special character.
+						</small>
+						<i class="fa fa-calendar icon"></i><input name="dob" placeholder="Date of birth"
+							onfocus="(this.type='date')" required id="dob"><br>
+						<input type="submit" class="btn" value="Sign up" onclick="return validateAll()">
+						<p style="margin-top: 0; font-size: 17px;">Or</p>
+						<a href='{% provider_login_url "facebook" method="js_sdk" %}' class="btn facebook"><i
+								class="fa fa-facebook"></i>Continue with facebook</a>
+						<a href='{% provider_login_url "google" %}' class="btn google"><i
+								class="fa fa-google"></i>Continue with google</a>
+						<p style="font-weight: 600;">Already have an account? <a id="nav-signup" onclick="login()">Log
+								in</a></p>
+					</form>
+
+					<!-- login form -->
+					<form id="loginform" action="/Login/" method="POST">
+						{% csrf_token %}
+						<i class="fa fa-user-circle icon"></i><input type="text" name="loginusername"
+							placeholder="Username" required><br>
+						<i class="fa fa-unlock-alt icon" style="padding-right: 12px;"></i><input type="password"
+							name="loginpassword" placeholder=" Password" required><br>
+						<a href="reset_password/" class="forgot" onclick="forgot();">Forgot your password?</a><br>
+						<input type="submit" class="btn" value="Login">
+						<p style="margin-top: 0; font-size: 17px;">Or</p>
+						<a href='{% provider_login_url "facebook" method="js_sdk" %}' class="btn facebook"><i
+								class="fa fa-facebook"></i>Continue with facebook</a>
+						<a href='{% provider_login_url "google" %}' class="btn google"><i
+								class="fa fa-google"></i>Continue with google</a>
+						<p style="font-weight: 600;">Don't have an account? <a id="register"
+								onclick="register()">Sign-up</a></p>
+					</form>
+
+					<!-- forget password form -->
+					<form id="forgotpassform" method="GET" action="reset_password_sent/">
+						{% csrf_token %}
+						<p>Enter your email address below, and we’ll email instructions for setting a new one.</p><i
+							class="fa fa-user-circle fa-lg icon"></i><input type="email" name="email"
+							placeholder="Email"><br>
+						<a class="backlogin" onclick="login()">Back to Login </a><br>
+						<input type=submit id="Reset" class="btn" value="Reset my Password">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- model script -->
+	<script>
+		var loginform = document.getElementById("loginform");
+		var regform = document.getElementById("regform");
+		var indicator = document.getElementById("indicator");
+		var forgotpassform = document.getElementById("forgotpassform");
+		var header = document.getElementById("head");
+		var tagline = document.getElementById("tagline");
+		var x = 0;
+		var y = 0;
+		function register() {
+			regform.style.transform = "translateY(0)";
+			loginform.style.transform = "translate(-100%, -50%)";
+			forgotpassform.style.transform = "translate(-100%, -50%)";
+			if (x == 1) {
+				regform.style.display = "block";
+				loginform.style.display = "none";
+				forgotpassform.style.display = "none";
+				x = 0;
+				y = 1;
+			}
+			indicator.style.transform = "translateX(225px)";
+		}
+
+		function login() {
+			regform.style.transform = "translate(-100%, -50%)";
+			forgotpassform.style.transform = "translate(-100%, -50%)";
+			loginform.style.transform = "translateY(0px)";
+			if (x == 0) {
+				loginform.style.display = "block";
+				regform.style.display = "none";
+				forgotpassform.style.display = "none";
+				header.style.display = "block";
+				tagline.style.display = "block";
+				x = 1;
+				y = 1;
+			}
+			indicator.style.transform = "translateX(30px)";
+			indicator.style.height = "3.2px";
+		}
+
+		function forgot() {
+			regform.style.transform = "translate(-100%, -50%)";
+			loginform.style.transform = "translate(-100%, -50%)";
+			forgotpassform.style.transform = "translateY(0px)";
+			if (y == 1) {
+				forgotpassform.style.display = "block";
+				loginform.style.display = "none";
+				regform.style.display = "none";
+				header.style.display = "none";
+				tagline.style.display = "none";
+				x = 0;
+			}
+		}
+
+	</script>
+
+	<!-- validation script -->
+	<script>
+
+		const username = document.getElementById("username");
+		const email = document.getElementById("email");
+		const password = document.getElementById("password");
+
+		let validUsername = false;
+		let validEmail = false;
+		let validPassword = false;
+
+		document.getElementById("e1").style.display = "none";
+		document.getElementById("e2").style.display = "none";
+		document.getElementById("e3").style.display = "none";
+
+
+		password.addEventListener('blur', (e) => {
+
+			let password_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			let str1 = e.target.value;
+			if (password_regex.test(str1)) {
+
+				document.getElementById("passwordvalid").style.display = "none";
+				document.getElementById("e3").style.display = "none";
+				password.style.borderBottom = "1px solid dimgray";
+				validPassword = true;
+			}
+			else {
+
+				document.getElementById("passwordvalid").style.display = "block";
+				document.getElementById("e3").style.display = "";
+				password.style.borderBottom = "1px solid red";
+				validPassword = false;
+			}
+		})
+
+		email.addEventListener('blur', (e) => {
+
+			let email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			let str2 = e.target.value;
+			if (email_regex.test(str2)) {
+
+				document.getElementById("emailvalid").style.display = "none";
+				document.getElementById("e2").style.display = "none";
+				email.style.borderBottom = "1px solid dimgray";
+				validEmail = true;
+			}
+			else {
+
+				document.getElementById("emailvalid").style.display = "block";
+				document.getElementById("e2").style.display = "";
+				email.style.borderBottom = "1px solid red";
+				validEmail = false;
+			}
+		})
+
+		username.addEventListener('blur', (e) => {
+
+			let username_regex = /^[a-zA-Z]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+			let str = e.target.value;
+			if (username_regex.test(str)) {
+
+				document.getElementById("usernamevalid").style.display = "none";
+				document.getElementById("e1").style.display = "none";
+				username.style.borderBottom = "1px solid dimgray";
+				validUsername = true;
+			}
+			else {
+				document.getElementById("usernamevalid").style.display = "block";
+				document.getElementById("e1").style.display = "";
+				username.style.borderBottom = "1px solid red";
+				validUsername = false;
+			}
+		})
+
+
+		function validateAll() {
+			if (validEmail && validPassword && validUsername) {
+				return true;
+			}
+			return false;
+		}
+	</script>
+
+
+</body>
+
+</html>

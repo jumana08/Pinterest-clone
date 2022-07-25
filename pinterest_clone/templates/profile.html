@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href='{%static "profile1.css"%}'>
+{% endblock %}
+
+{% block body %}
+
+<div class="profile1">
+    <div class="span">{{user_initial}}</div>
+    <h1>{{user_details.username}}</h1>
+    <p class="p1">{{user_details.email}}</p>
+    <button class="button">Edit Profile</button>
+</div>
+
+<div class="profile2">
+
+    <div class="profile3 pr1"><a href="/Liked/"><img src='{%static "like.png"%}'></a><span class="profile4">Liked Pins</span></div>
+    <div class="profile3 pr2"><a href="/Saved/"><img src='{%static "save.png"%}'></a><span class="profile4 pr7">Saved Pins</span></div>
+    <div class="profile3 pr3"><a href="/Uploaded/"><img src='{%static "upload.png"%}'></a><span class="profile4 pr6">Uploaded Pins</span></div>
+    <button class="pr4" type="submit" data-toggle="" data-target=""><a href="/upload_page/" class="pr5">+</a></button>
+
+</div>
+
+{% endblock %}

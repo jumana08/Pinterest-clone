@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block css%}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .image {
+        width: 550px;
+        height: 600px;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .image-desc {
+        width: 990px;
+        height: 600px;
+        background: white;
+        top: 52%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        border-radius: 20px;
+        box-shadow: 5px 5px 8px rgb(201, 198, 198);
+    }
+
+    .download {
+        display: inline-block;
+        position: absolute;
+    }
+
+    .icon {
+        margin-top: 25px;
+        background: #d6d6d6;
+        color: black;
+        padding: 15px;
+        border-radius: 100%;
+        margin-left: 20px;
+    }
+
+    .icon:hover {
+        cursor: pointer;
+        background: #4A274F;
+        color: white;
+    }
+
+    .save {
+        margin-left: 240px;
+        background: #4A274F;
+        color: white;
+        font-size: 16px;
+        width: 80px;
+        height: 50px;
+        font-weight: bold;
+        border-radius: 30px;
+    }
+
+    .save:hover {
+        color: white;
+        background: #321735;
+    }
+
+    .h1 {
+        padding: 20px;
+        margin-bottom: 0px;
+    }
+
+    .p {
+        padding: 25px;
+    }
+
+    .p1{
+        margin-left: 25px;
+    }
+
+    .u{
+        text-decoration: none;
+        color: #4A274F;
+        font-weight: 800;
+    }
+
+    .likesection {
+        padding: 25px;
+        font-size: 2rem;
+        /* margin-top: 0px; */
+    }
+
+    .far {
+        transition: 0.3s;
+        transform: translateY(-30px);
+    }
+
+    
+    #likescount {
+        font-size: 13px;
+        padding: 0px;
+        margin-top: -30px;
+        font-weight: 600;
+    }
+
+    .nav-item1 {
+        margin-top: 17px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .jm {
+        background-color: white;
+        border: none;
+    }
+
+    .description{
+        width: 450px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div>
+    
+    <div class="image-desc">
+        <img src="/media/{{image.image}}" class="image">
+        <div class="download">
+            <a href="/media/{{image.image}}" download title="Download image"><i class="fa fa-download fa-lg icon"
+                    id="dwld" onclick="setOutline()"></i></a>
+            <a href="/saving/{{image.image_id}}"><button type="button" class="btn save">{{status}}</button></a>
+            <div class="description">
+                <h1 class="h1">{{image.title}}</h1>
+                <p class="p1">Uploaded by <b><a class="u" target="_blank" href="/profile/{{image.username}}">{{image.username}}</a></b></p>
+                <p class="p">{{image.description}}</p>
+            </div>
+            <div class="likesection">
+                <form action="/liking/{{image.image_id}}/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value={{x}}>
+                    <button onclick="toggle()" class="jm" type="submit">
+                        <i class="far fa-heart" id="likebtn"></i>
+                    </button>
+                </form>
+                <p id="likescount">Likes <span id="count" onclick="toggle()">{{like}}</span></p>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    <script>
+
+        var button = document.getElementById("likebtn");
+        var count = 0;
+
+        if (button.classList.contains("far") && "{{x}}" == 1) {
+            button.classList.remove("far");
+            button.classList.add("fas");
+            button.style.color = "#FD1D1D";
+            button.style.transform = "translateY(-30px)";
+            button.style.transition = "0.3s";
+        }
+        else {
+            button.classList.remove("fas");
+            button.classList.add("far");
+            button.style.color = "black";
+        }
+
+        function setOutline() {
+            document.getElementById("dwld").style.outline = "4px solid #ADD8E6";
+        }
+        window.addEventListener('mouseup', function (event) {
+            var x = document.getElementById('dwld');
+            if (event.target != x) {
+                x.style.outline = "none";
+            }
+        })
+        
+
+    </script>
+
+
+
+
+</div>
+
+{% endblock%}

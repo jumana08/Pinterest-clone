@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href='{%static "profile1.css"%}'>
+{% endblock %}
+
+{% block body %}
+
+<div class="profile1">
+    <div class="span">{{user_initial}}</div>
+    <h1>{{user_details.username}}</h1>
+    <p class="p1">{{user_details.email}}</p>
+
+    <div class="container1" id="div1">
+
+        {% for i in images %}
+        <div class="item">
+            <a href="/image_view/{{i.image_id}}"><img class="images" src="/media/{{i.image}}"></a>
+            <p>{{i.title}}</p>
+            <h5>click for more details...</h5>
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+{% endblock %}

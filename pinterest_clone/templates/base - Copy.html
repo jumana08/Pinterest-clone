@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<title>Pinterest_clone</title>
+	<!-- navbar styling -->
+	<link rel="stylesheet" href='{%static "navbar.css"%}'>
+	<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
+
+	{% block css %}{% endblock %}
+	<!-- homepage styling -->
+	<!-- <style>
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.container1 {
+			width: 100%;
+			columns: 7;
+			column-gap: 15px;
+			padding: 15px;
+			position: relative;
+			text-align: center;
+			color: white;
+		}
+
+		img {
+			width: 100%;
+			margin-bottom: 15px;
+			border-radius: 10px;
+		}
+
+		.item {
+    		position: relative;
+		}
+
+		.item span {
+    		position: absolute;
+    		top: 50%;
+			bottom: 50%;
+    		transform: translateY(50%);
+			color: black;
+		}
+
+		img:hover {
+			transform: scale(1.1);
+		}
+         
+	</style> -->
+<style>
+	*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container1{
+            columns: 7;
+            width: 100%;
+            max-width: 100%;
+            column-gap: 10px;
+            padding: 10px;
+            /* margin-right: 10px; */
+            
+        }
+        .images{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            position: relative;
+            margin: 0;
+            /* z-index: -1; */
+        }
+        .item{
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .item h5{
+            text-align:center;
+            position:absolute;
+            top:50%;
+            width:100%;
+            font-size: 18px;
+            padding: 0px 20px;
+            transform:translate(0%,-100%);
+            -webkit-transform:translate(0%,-100%);
+            -ms-transform:translate(0%,-100%);
+            color:#FFFFFF;
+            cursor: pointer;
+            display:none;
+        }
+        .item:hover img{
+            filter: brightness(0.3);
+            -webkit-filter:brightness(0.3);
+            -ms-filter:brightness(0.3);
+            cursor: pointer;
+            transition: .3s;
+        }
+        .item:hover h5{
+            display: block;
+        }
+        .item p{
+            margin: 5px;
+            padding-bottom: 10px;
+            font-size: 14px;
+            text-align: center;
+			font-family: 'Aclonica';
+		
+        }
+</style>
+</head>
+
+<body>
+
+	<!-- message -->
+	{% for message in messages %}
+	<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="margin:0%;">
+		{{ message }}
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+		</button>
+	</div>
+	{% endfor %}
+
+	<!-- navbar -->
+	<nav class="nav">
+		<img src='{%static "logo.png"%}'
+			style="margin-top: 5px; margin-left: 15px; margin-right: 5px; height: 60px; width:60px;">
+		<a class="nav-item1 x" aria-current="page" href="/home/">Home</a>
+		<a class="nav-item1 x" href="#">Today</a>
+		<div class="btn1">
+			<i class="fas fa-search"></i>
+			<input type="search" class="form-control mr-sm-2" placeholder="Search" size="100px;">
+			<a class="nav-item2 dropdown-toggle b" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
+			<ul class="dropdown-menu">
+			  <li class="drop">
+			  <ul class="drop1 dr1">
+				<li class="a1" style="background: url(https://source.unsplash.com/200x80/?child,fashion);"><a href="#">Child Fashion</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?sketching); outline: none;"><a class="a1 x2" href="#">Sketching</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?travel); outline: none;"><a class="a1 x3" href="#">Travel</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?yoga,meditation); outline: none;"><a class="a1 x4" href="#">Yoga</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?nails); outline: none;"><a class="a1 x5" href="#">Nails</a></li>
+			  </ul>
+			  </a></li>
+			  <li class="drop">
+			  <ul class="drop1">
+				<li style="background: url(https://source.unsplash.com/200x80/?makeup); outline: none;"><a class="a1 x6" href="#">Make-up</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?art); outline: none;"><a class="a1 x7" href="#">Art</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?henna); outline: none;"><a class="a1 x8" href="#">Mehendi</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?nature); outline: none;"><a class="a1 x9" href="#">Nature</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?recipes); outline: none;"><a class="a1 x10" href="#">Recipes</a></li>
+			  </ul>
+			  </a></li>
+			  <li class="drop">
+			  <ul class="drop1">
+				<li style="background: url(https://source.unsplash.com/200x80/?friendship); outline: none;"><a class="a1 x11" href="#">Friendship</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?brushes,makeup,product); outline: none;"><a class="a1 x12" href="#">Beauty</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?flowers); outline: none;"><a class="a1 x13" href="#">Flowers</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?hairstyles); outline: none;"><a class="a1 x14" href="#">Hairstyles</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?babies); outline: none;"><a class="a1 x15" href="#">Babies</a></li>
+			  </ul>
+			  </a></li>
+			  <li class="drop">
+			  <ul class="drop1 dee">
+				<li style="background: url(https://source.unsplash.com/200x80/?birthday,caps); outline: none;"><a class="a1 x16" href="#">Birthday</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?disney); outline: none;"><a class="a1 x17" href="#">Cartoons</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?dress); outline: none;"><a class="a1 x18" href="#">Dresses</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?birds); outline: none;"><a class="a1 x19" href="#">Birds</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?jewellery); outline: none;"><a class="a1 x20" href="#">Jewellery</a></li>
+			  </ul>
+			  </a></li>
+			  <li class="drop">
+			  <ul class="drop1 dr2">
+				<li style="background: url(https://source.unsplash.com/200x80/?positive,quotes); outline: none;"><a class="a1 x21" href="#">Positive</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?drawing,colorful); outline: none;"><a class="a1 x22" href="#">Drawings</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?love); outline: none;"><a class="a1 x23" href="#">Love Quotes</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?shoes); outline: none;"><a class="a1 x24" href="#">Shoes</a></li>
+				<li style="background: url(https://source.unsplash.com/200x80/?morning); outline: none;"><a class="a1 x25" href="#">Good Morning</a></li>
+	          </ul>
+			  </a></li>
+			</ul>
+		</div>
+		<a href="/Profile/" class="nav-item2 x"><i class="fas fa-user-circle fa-2x"></i></a>
+		<!-- <a class="x" href="/Profile/" id="username_initial"><p id="user">{{user_initial}}</p></a> -->
+		<a class="nav-item2 dropdown-toggle a c" data-bs-toggle="dropdown" href="#" role="button"
+			aria-expanded="false"></a>
+		<ul class="dropdown-menu">
+			<li><a href="/Settings/">Settings</a></li>
+			<li><a href="/ReachUs/">Reach Us</a></li>
+			<li><a href="/Logout/">Logout</a></li>
+		</ul>
+	</nav>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+	
+	{% block body %}{% endblock %}
+
+</body>
+
+</html>

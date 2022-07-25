@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<style>
+    .profile1 {
+        text-align: center;
+    }
+
+    h2 {
+        font-style: italic;
+    }
+
+    .like {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="profile1">
+    <h1>{{user_details.username}}</h1>
+    <p class="p1">{{user_details.email}}</p>
+    <div>
+        <h2>Your Saved Pins</h2>
+        <img class="like" src='{%static "save.png"%}'>
+    </div>
+
+    <div class="container1" id="div1">
+
+        {% for i in images %}
+        <div class="item">
+            <a href="/image_view/{{i.image_id}}"><img class="images" src="/media/{{i.image}}"></a>
+            <p>{{i.title}}</p>
+            <h5>click for more details...</h5>
+        </div>
+        {% endfor %}
+        
+    </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container1" id="div1">
+	{% for i in images %}
+
+	<div class="item">
+		<a href="/image_view/{{i.image_id}}"><img class="images" src="/media/{{i.image}}"></a>
+	<p>{{i.title}}</p>
+	<h5>click for more details...</h5>
+	</div>
+	{% endfor %}
+
+	{% for i in images1 %}
+
+	<div class="item">
+		<a href="/image_view/{{i.image_id}}"><img class="images" src="/media/{{i.image}}"></a>
+	<p>{{i.title}}</p>
+	<h5>click for more details...</h5>
+	</div>
+	
+	{% endfor %}
+</div>
+
+
+{% endblock%}
